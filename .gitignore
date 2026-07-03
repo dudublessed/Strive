@@ -1,0 +1,23 @@
+## Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+## XcodeGen output — regenerate locally with `xcodegen generate`
+Strive.xcodeproj/
+
+## Swift / SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+
+## macOS
+.DS_Store
+
+## Editors
+.vscode/
+.idea/
