@@ -7,9 +7,9 @@ struct ActivityListView: View {
         var id: String { rawValue }
         var label: String {
             switch self {
-            case .date: return "Date"
-            case .distance: return "Distance"
-            case .pace: return "Pace"
+            case .date: return "Data"
+            case .distance: return "Distância"
+            case .pace: return "Ritmo"
             }
         }
     }
@@ -36,11 +36,11 @@ struct ActivityListView: View {
                 }
             }
         }
-        .navigationTitle("Activities")
+        .navigationTitle("Atividades")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
-                    Picker("Sort by", selection: $sort) {
+                    Picker("Ordenar por", selection: $sort) {
                         ForEach(Sort.allCases) { s in
                             Text(s.label).tag(s)
                         }
@@ -56,9 +56,9 @@ struct ActivityListView: View {
         .overlay {
             if activities.isEmpty {
                 ContentUnavailableView(
-                    "No activities",
+                    "Nenhuma atividade",
                     systemImage: Icons.activities,
-                    description: Text("Import a Strava archive to populate this list.")
+                    description: Text("Importe um arquivo da Strava para preencher esta lista.")
                 )
             }
         }
@@ -66,7 +66,7 @@ struct ActivityListView: View {
 
     private func row(for a: RunActivity) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(a.name.isEmpty ? "Run" : a.name)
+            Text(a.name.isEmpty ? "Corrida" : a.name)
                 .font(.body.weight(.medium))
             HStack(spacing: Theme.Spacing.m) {
                 Label(Formatters.distance(a.distanceMeters), systemImage: Icons.distance)

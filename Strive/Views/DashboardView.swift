@@ -17,7 +17,7 @@ struct DashboardView: View {
             .padding(Theme.Spacing.l)
         }
         .background(Theme.Palette.surface)
-        .navigationTitle("Records")
+        .navigationTitle("Recordes")
     }
 
     private var metricsGrid: some View {
@@ -31,25 +31,25 @@ struct DashboardView: View {
             spacing: Theme.Spacing.m
         ) {
             MetricCard(
-                title: "Longest run",
+                title: "Corrida mais longa",
                 value: longest.map { Formatters.distance($0.distanceMeters) } ?? "—",
                 caption: longest.map { Formatters.mediumDate.string(from: $0.date) },
                 systemIcon: Icons.distance
             )
             MetricCard(
-                title: "Most elevation",
+                title: "Maior elevação",
                 value: mostGain.map { Formatters.elevation($0.elevationGainMeters) } ?? "—",
                 caption: mostGain.map { Formatters.mediumDate.string(from: $0.date) },
                 systemIcon: Icons.elevation
             )
             MetricCard(
-                title: "Longest duration",
+                title: "Maior duração",
                 value: longestDur.map { Formatters.duration(Double($0.movingTimeSeconds)) } ?? "—",
                 caption: longestDur.map { Formatters.mediumDate.string(from: $0.date) },
                 systemIcon: Icons.duration
             )
             MetricCard(
-                title: "Runs imported",
+                title: "Corridas importadas",
                 value: "\(activities.count)",
                 caption: nil,
                 systemIcon: Icons.activities
@@ -59,7 +59,7 @@ struct DashboardView: View {
 
     private var splitsSection: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.m) {
-            Text("Fastest splits")
+            Text("Splits mais rápidos")
                 .font(.headline)
                 .foregroundStyle(Theme.Palette.accentText)
 
@@ -76,7 +76,7 @@ struct DashboardView: View {
             .background(Theme.Palette.accentFill)
             .clipShape(RoundedRectangle(cornerRadius: Theme.Radius.card))
 
-            Text("Splits are computed once activity file parsing lands.")
+            Text("Os splits serão calculados quando a leitura dos arquivos de atividade estiver pronta.")
                 .font(.caption)
                 .foregroundStyle(Theme.Palette.subtleText)
         }
@@ -89,9 +89,9 @@ private struct EmptyDashboard: View {
             Image(systemName: Icons.dashboard)
                 .font(.system(size: 44))
                 .foregroundStyle(Theme.Palette.accent)
-            Text("No runs yet")
+            Text("Nenhuma corrida ainda")
                 .font(.title3.weight(.semibold))
-            Text("Import a Strava archive from the Import tab to get started.")
+            Text("Importe um arquivo da Strava na aba Importar para começar.")
                 .font(.subheadline)
                 .foregroundStyle(Theme.Palette.subtleText)
                 .multilineTextAlignment(.center)

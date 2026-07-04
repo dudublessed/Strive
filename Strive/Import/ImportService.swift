@@ -88,7 +88,7 @@ enum ImportError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .missingActivitiesCSV:
-            return "Couldn't find activities.csv in the selected folder."
+            return "Não foi possível encontrar o activities.csv na pasta selecionada."
         }
     }
 }

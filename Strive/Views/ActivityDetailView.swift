@@ -25,25 +25,25 @@ struct ActivityDetailView: View {
                                   GridItem(.flexible(), spacing: Theme.Spacing.m)],
                         spacing: Theme.Spacing.m
                     ) {
-                        MetricCard(title: "Distance",
+                        MetricCard(title: "Distância",
                                    value: Formatters.distance(a.distanceMeters),
                                    systemIcon: Icons.distance)
-                        MetricCard(title: "Moving time",
+                        MetricCard(title: "Tempo em movimento",
                                    value: Formatters.duration(Double(a.movingTimeSeconds)),
                                    systemIcon: Icons.duration)
-                        MetricCard(title: "Pace",
+                        MetricCard(title: "Ritmo",
                                    value: Formatters.pace(secPerKm: a.averagePaceSecPerKm),
                                    systemIcon: Icons.pace)
-                        MetricCard(title: "Elevation gain",
+                        MetricCard(title: "Elevação",
                                    value: Formatters.elevation(a.elevationGainMeters),
                                    systemIcon: Icons.elevation)
                     }
                 }
                 .padding(Theme.Spacing.l)
-                .navigationTitle(a.name.isEmpty ? "Run" : a.name)
+                .navigationTitle(a.name.isEmpty ? "Corrida" : a.name)
                 .navigationBarTitleDisplayMode(.inline)
             } else {
-                ContentUnavailableView("Activity not found",
+                ContentUnavailableView("Atividade não encontrada",
                                        systemImage: "questionmark.circle")
             }
         }
