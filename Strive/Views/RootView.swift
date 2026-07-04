@@ -6,17 +6,17 @@ struct RootView: View {
             NavigationStack {
                 DashboardView()
             }
-            .tabItem { Label("Records", systemImage: Icons.dashboard) }
+            .tabItem { Label("Recordes", systemImage: Icons.dashboard) }
 
             NavigationStack {
                 ActivityListView()
             }
-            .tabItem { Label("Activities", systemImage: Icons.activities) }
+            .tabItem { Label("Atividades", systemImage: Icons.activities) }
 
             NavigationStack {
                 ImportView()
             }
-            .tabItem { Label("Import", systemImage: Icons.importArchive) }
+            .tabItem { Label("Importar", systemImage: Icons.importArchive) }
         }
         .tint(Theme.Palette.accent)
     }

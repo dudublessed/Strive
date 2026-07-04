@@ -44,9 +44,9 @@ enum SplitDistance: CaseIterable {
 
     var label: String {
         switch self {
-        case .fiveK: return "5K"
-        case .tenK: return "10K"
-        case .halfMarathon: return "Half marathon"
+        case .fiveK: return "5 km"
+        case .tenK: return "10 km"
+        case .halfMarathon: return "Meia maratona"
         }
     }
 }

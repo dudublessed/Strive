@@ -27,7 +27,7 @@ struct ImportView: View {
             .padding(Theme.Spacing.l)
         }
         .background(Theme.Palette.surface)
-        .navigationTitle("Import")
+        .navigationTitle("Importar")
         .fileImporter(
             isPresented: $isPickerPresented,
             allowedContentTypes: [.folder, .commaSeparatedText],
@@ -39,10 +39,10 @@ struct ImportView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.s) {
-            Text("Import Strava archive")
+            Text("Importar arquivo da Strava")
                 .font(.title2.weight(.semibold))
                 .foregroundStyle(Theme.Palette.accentText)
-            Text("Point the picker at your unzipped export folder, or directly at `activities.csv`.")
+            Text("Selecione a pasta descompactada da exportação, ou o arquivo `activities.csv` diretamente.")
                 .font(.subheadline)
                 .foregroundStyle(Theme.Palette.subtleText)
         }
@@ -50,9 +50,9 @@ struct ImportView: View {
 
     private var howItWorks: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.s) {
-            Label("Request an archive from Strava (Settings → My Account).", systemImage: "1.circle.fill")
-            Label("Unzip it with the Files app.", systemImage: "2.circle.fill")
-            Label("Pick the folder here — re-imports are safe (upsert by ID).", systemImage: "3.circle.fill")
+            Label("Peça uma exportação de dados na Strava (Configurações → Minha Conta).", systemImage: "1.circle.fill")
+            Label("Descompacte com o app Arquivos.", systemImage: "2.circle.fill")
+            Label("Selecione a pasta aqui — reimportar é seguro (atualiza pelo ID).", systemImage: "3.circle.fill")
         }
         .font(.subheadline)
         .foregroundStyle(Theme.Palette.accentText)
@@ -69,7 +69,7 @@ struct ImportView: View {
         } label: {
             HStack {
                 Image(systemName: Icons.importArchive)
-                Text(isImporting ? "Importing…" : "Choose folder or CSV")
+                Text(isImporting ? "Importando…" : "Escolher pasta ou CSV")
                     .font(.body.weight(.semibold))
             }
             .frame(maxWidth: .infinity)
@@ -83,10 +83,10 @@ struct ImportView: View {
 
     private func summaryCard(_ s: ImportService.Summary) -> some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.s) {
-            Text("Last import")
+            Text("Última importação")
                 .font(.headline)
                 .foregroundStyle(Theme.Palette.accentText)
-            Text("\(s.inserted) new · \(s.updated) updated")
+            Text("\(s.inserted) novas · \(s.updated) atualizadas")
                 .font(.subheadline)
                 .foregroundStyle(Theme.Palette.subtleText)
         }
